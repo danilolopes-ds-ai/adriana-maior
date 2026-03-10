@@ -331,12 +331,14 @@
 
         @media (min-width: 1024px) {
             .especialista-layout {
-                grid-template-columns: 360px minmax(0, 540px);
+                grid-template-columns: 360px minmax(0, 1fr);
                 column-gap: 3rem;
                 row-gap: 0;
                 align-items: center;
-                justify-content: center;
-                max-width: 960px;
+                justify-content: start;
+                max-width: 100%;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .especialista-text {
