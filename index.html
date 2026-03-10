@@ -154,6 +154,10 @@
             transition: opacity 1.2s ease;
         }
 
+        .diagnostico-slide--focus-right {
+            object-position: 72% center;
+        }
+
         .diagnostico-slide.is-active {
             opacity: 1;
         }
@@ -173,6 +177,26 @@
 
             .hero-overlay {
                 background: linear-gradient(180deg, rgba(0, 0, 0, 0.46) 0%, rgba(0, 0, 0, 0.58) 46%, rgba(0, 0, 0, 0.72) 100%);
+            }
+        }
+
+        @media (min-width: 768px) {
+            #diagnostico-carousel {
+                width: min(84vw, 680px);
+                aspect-ratio: 1 / 1;
+                min-height: 0 !important;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            #diagnostico-carousel {
+                width: min(40vw, 560px);
+                flex: 0 0 auto;
+                margin-left: 0;
+                margin-right: 0;
             }
         }
 
@@ -532,7 +556,7 @@
     <!-- ========== DIAGNÓSTICO ========== -->
     <section id="diagnostico" class="perf-section section-alt py-12 sm:py-16 md:py-20 border-b border-borderLight">
         <div class="flex flex-col lg:flex-row">
-            <div id="diagnostico-carousel" class="lg:w-1/2 relative min-h-[400px] sm:min-h-[500px] lg:min-h-screen border-b lg:border-b-0 lg:border-r border-borderLight overflow-hidden">
+            <div id="diagnostico-carousel" class="relative min-h-[400px] sm:min-h-[500px] border-b lg:border-b-0 lg:border-r border-borderLight overflow-hidden">
                 <img src="assets/img/1-diagnostico.webp?v=20260310" srcset="assets/img/responsive/1-diagnostico-640.webp?v=20260310 640w, assets/img/1-diagnostico.webp?v=20260310 1024w" sizes="(max-width: 1023px) 100vw, 50vw" alt="Diagnóstico energético do ambiente" class="diagnostico-slide is-active" loading="lazy" decoding="async" fetchpriority="low">
                 <img src="assets/img/2-diagnostico.webp?v=20260310" srcset="assets/img/responsive/2-diagnostico-640.webp?v=20260310 640w, assets/img/2-diagnostico.webp?v=20260310 1024w" sizes="(max-width: 1023px) 100vw, 50vw" alt="Harmonização e leitura do espaço" class="diagnostico-slide diagnostico-slide--focus-right" loading="lazy" decoding="async" fetchpriority="low">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bgBase/20 to-bgAlt/38"></div>
