@@ -1,0 +1,15 @@
+{
+  "name": "adriana-maior-site",
+  "version": "1.0.0",
+  "description": "```\r adriana-maior/\r ├── index.html              ← Página principal (HTML semântico)\r ├── css/\r │   ├── design-system.css   ← Tokens de cores, tipografia, botões, reset\r │   └── pages.css           ← Componentes: header, hero, cards, animations\r ├── js/\r │   └── main.js             ← Mobile nav, header scroll, scroll reveal\r ├── assets/\r │   └── img/                ← Pasta para imagens (JPG, PNG, WebP)\r ├── README.md               ← Este arquivo\r ├── .cursorrules            ← Instruções para Copilot\r ├── designer-system.md      ← Documentação do Design System (Remedy Place)\r └── .gitignore              ← Arquivos a ignorar no Git\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

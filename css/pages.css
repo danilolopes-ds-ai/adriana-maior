@@ -1,0 +1,741 @@
+/* ============================================
+   COMPONENTS & PAGE STYLES — Adriana Maior
+   ============================================ */
+
+/* ---------- Site Banner (topo fixo) ---------- */
+.site-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: var(--banner-bg);
+  border-bottom: 1px solid rgba(75, 68, 60, 0.3);
+  padding: 10px var(--gutter);
+  text-align: center;
+}
+
+.site-banner__text {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--text-earth-dark);
+}
+
+.site-banner__text a {
+  color: var(--text-earth-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---------- Site Header ---------- */
+.site-header {
+  position: fixed;
+  top: 36px; /* abaixo do banner */
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: transparent;
+  padding: var(--space-5) var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--duration-medium) var(--ease-default);
+}
+
+.site-header.scrolled {
+  background: rgba(26, 24, 23, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.site-header__logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text-air);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .site-header__logo {
+    font-size: 24px;
+  }
+}
+
+.site-header__nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .site-header__nav {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+  }
+}
+
+.site-header__nav a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--text-bone);
+}
+.site-header__nav a:hover {
+  color: var(--text-air);
+}
+
+/* Hamburger */
+.site-header__menu-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+@media (min-width: 1024px) {
+  .site-header__menu-btn {
+    display: none;
+  }
+}
+
+.site-header__menu-btn span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--text-bone);
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg-onyx);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-medium) var(--ease-default);
+}
+
+.mobile-nav.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--text-air);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mobile-nav__close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--gutter);
+  background: none;
+  border: none;
+  color: var(--text-bone);
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--bg-onyx);
+  overflow: hidden;
+  margin-top: 96px; /* banner (36px) + header (~60px) */
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 24, 23, 0.4) 0%,
+    rgba(26, 24, 23, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 0 var(--gutter);
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-bone);
+  margin-bottom: var(--space-6);
+}
+
+.hero__title {
+  margin-bottom: var(--space-6);
+}
+
+.hero__text {
+  font-weight: 300;
+  color: var(--text-air);
+  letter-spacing: 0.4px;
+  margin: 0 auto var(--space-10);
+  max-width: 560px;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .hero__ctas {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* ---------- Seção Sobre (Bio) ---------- */
+.about {
+  background: var(--bg-onyx);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-14);
+  }
+}
+
+.about__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.about__image-wrapper img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: grayscale(20%);
+}
+
+.about__label {
+  margin-bottom: var(--space-5);
+}
+
+.about__title {
+  margin-bottom: var(--space-3);
+}
+
+.about__subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-bone);
+  letter-spacing: 0.35px;
+  margin-bottom: var(--space-8);
+  text-transform: uppercase;
+}
+
+.about__text {
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- Seção Serviços ---------- */
+.services {
+  background: var(--bg-onyx);
+}
+
+.services__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  border: 1px solid var(--bg-earth-light);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: background var(--duration-fast) var(--ease-default);
+  /* Collapse borders */
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.service-card:hover {
+  background: rgba(75, 68, 60, 0.15);
+}
+
+.service-card__name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text-air);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.service-card__type {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-bone);
+  letter-spacing: 0.35px;
+}
+
+.service-card__price {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--text-air);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--bg-earth-light);
+}
+
+/* ---------- Seção Áreas de Aplicação ---------- */
+.areas {
+  background: var(--bg-onyx);
+}
+
+.areas__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 640px) {
+  .areas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .areas__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.area-card {
+  border: 1px solid var(--bg-earth-light);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  transition: all var(--duration-fast) var(--ease-default);
+  margin-top: -1px;
+  margin-left: -1px;
+}
+
+.area-card:hover {
+  background: rgba(75, 68, 60, 0.15);
+  border-color: var(--text-bone);
+}
+
+.area-card__icon {
+  font-size: 28px;
+  margin-bottom: var(--space-4);
+  opacity: 0.7;
+}
+
+.area-card__title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--text-air);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+/* ---------- Seção Depoimentos ---------- */
+.testimonials {
+  background: var(--bg-onyx);
+  text-align: center;
+}
+
+.testimonial {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.testimonial__quote {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-air);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.testimonial__quote::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: var(--bg-earth-light);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+}
+
+.testimonial__author {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-bone);
+}
+
+.testimonial__location {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--bg-earth-light);
+  margin-top: var(--space-1);
+}
+
+/* ---------- Seção Radiestesia Genética ---------- */
+.info-section {
+  background: var(--bg-onyx);
+}
+
+.info-section__content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.info-section__title {
+  margin-bottom: var(--space-8);
+}
+
+.info-section__text {
+  margin: 0 auto var(--space-6);
+  text-align: left;
+}
+
+/* ---------- Seção Curso ---------- */
+.course {
+  background: var(--bg-onyx);
+  border-top: 1px solid var(--bg-earth-light);
+}
+
+.course__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .course__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.course__meta {
+  display: flex;
+  gap: var(--space-6);
+  margin: var(--space-6) 0 var(--space-8);
+}
+
+.course__meta-item {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.35px;
+  color: var(--text-bone);
+}
+
+.course__lessons {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.course__lesson {
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--bg-earth-light);
+  margin-top: -1px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.course__lesson:hover {
+  background: rgba(75, 68, 60, 0.1);
+}
+
+.course__lesson-number {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--bg-earth-light);
+  min-width: 32px;
+}
+
+.course__lesson-title {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.35px;
+  color: var(--text-air);
+}
+
+.course__lesson--locked {
+  opacity: 0.4;
+}
+
+/* ---------- Seção Parceiros ---------- */
+.partners {
+  background: var(--bg-onyx);
+}
+
+.partner-card {
+  border: 1px solid var(--bg-earth-light);
+  padding: var(--space-8);
+}
+
+.partner-card + .partner-card {
+  margin-top: -1px;
+}
+
+@media (min-width: 768px) {
+  .partners__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  .partner-card + .partner-card {
+    margin-top: 0;
+  }
+}
+
+.partner-card__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--text-air);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.partner-card__specialty {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--bg-earth-light);
+  margin-bottom: var(--space-6);
+}
+
+.partner-card__text {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+}
+
+.partner-card__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 13px;
+  color: var(--text-bone);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--bg-earth-light);
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter {
+  background: var(--bg-onyx);
+  border-top: 1px solid var(--bg-earth-light);
+  border-bottom: 1px solid var(--bg-earth-light);
+  text-align: center;
+}
+
+.newsletter__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 480px;
+  margin: var(--space-8) auto 0;
+}
+
+@media (min-width: 640px) {
+  .newsletter__form {
+    flex-direction: row;
+  }
+}
+
+.newsletter__form .input {
+  flex: 1;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--bg-onyx-dark);
+  padding: var(--space-14) 0 var(--space-10);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.footer__label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-bone);
+  margin-bottom: var(--space-5);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer__links a {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-bone);
+  letter-spacing: 0.35px;
+}
+
+.footer__contact-item {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-bone);
+  margin-bottom: var(--space-3);
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--bg-earth-light);
+}
+
+.footer__social a {
+  font-size: 13px;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+.footer__bottom {
+  margin-top: var(--space-12);
+  padding: var(--space-8) var(--gutter);
+  border-top: 1px solid var(--bg-earth-light);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--bg-earth-light);
+}
+
+/* ---------- Divider decorativo ---------- */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--bg-earth-light);
+  margin: var(--space-6) auto;
+}
+
+.divider--left {
+  margin-left: 0;
+}
+
+/* ---------- Badge / Tag ---------- */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--text-earth-dark);
+  background: var(--border-bone);
+  padding: 6px 14px;
+}
+
+/* ---------- Scroll Reveal (JS toggle) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-slow) var(--ease-default),
+              transform var(--duration-slow) var(--ease-default);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
