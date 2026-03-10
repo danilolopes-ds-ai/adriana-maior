@@ -183,19 +183,20 @@
         @media (min-width: 768px) {
             #diagnostico-carousel {
                 width: 100%;
-                aspect-ratio: 16 / 10;
+                aspect-ratio: 4 / 3;
                 min-height: 0 !important;
                 height: auto;
                 margin-left: 0;
                 margin-right: 0;
                 border-radius: 18px;
                 overflow: hidden;
+                box-shadow: 0 20px 42px rgba(26, 24, 23, 0.14);
+                border: 0;
             }
 
             #diagnostico-carousel .diagnostico-slide {
-                object-fit: contain;
+                object-fit: cover;
                 object-position: center center;
-                background: linear-gradient(180deg, #f4f0eb 0%, #ece6de 100%);
             }
 
             #diagnostico-carousel .diagnostico-slide--focus-right {
@@ -568,7 +569,7 @@
     <!-- ========== DIAGNÓSTICO ========== -->
     <section id="diagnostico" class="perf-section section-alt py-12 sm:py-16 md:py-20 px-6 sm:px-8 md:px-10 border-b border-borderLight">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:gap-8 lg:gap-10 xl:gap-14">
-            <div id="diagnostico-carousel" class="relative min-h-[400px] sm:min-h-[500px] border border-borderLight overflow-hidden md:w-2/5">
+            <div id="diagnostico-carousel" class="relative min-h-[400px] sm:min-h-[500px] overflow-hidden md:w-2/5">
                 <img src="assets/img/1-diagnostico.webp?v=20260310" srcset="assets/img/responsive/1-diagnostico-640.webp?v=20260310 640w, assets/img/1-diagnostico.webp?v=20260310 1024w" sizes="(max-width: 1023px) 100vw, 50vw" alt="Diagnóstico energético do ambiente" class="diagnostico-slide is-active" loading="lazy" decoding="async" fetchpriority="low">
                 <img src="assets/img/2-diagnostico.webp?v=20260310" srcset="assets/img/responsive/2-diagnostico-640.webp?v=20260310 640w, assets/img/2-diagnostico.webp?v=20260310 1024w" sizes="(max-width: 1023px) 100vw, 50vw" alt="Harmonização e leitura do espaço" class="diagnostico-slide diagnostico-slide--focus-right" loading="lazy" decoding="async" fetchpriority="low">
                 <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bgBase/20 to-bgAlt/38"></div>
